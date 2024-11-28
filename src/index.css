@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "League Spartan";
+  src: url("./assets/fonts/LeagueSpartan.ttf");
+  font-display: swap;
+}
+
+:root {
+  font-family: "League Spartan", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 500;
+
+  /* Variables */
+  --color-primary: hsl(180 29% 50%);
+
+  --color-bg: hsl(180 52% 96%);
+  --color-filter-tablets: hsl(180 31% 95%);
+  --dark-grayish-cyan: hsl(180 8% 52%);
+  --very-dark-grayish-cyan: hsl(180 14% 20%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
