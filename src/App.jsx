@@ -1,7 +1,11 @@
+import JobCard from "./components/JobCard";
+
 export default function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <main className="max-w-screen-lg mx-auto py-4">
+        <JobCard />
+      </main>
     </>
   );
 }
