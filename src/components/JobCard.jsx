@@ -1,3 +1,5 @@
+import JobSkill from "./JobSkill";
+
 export default function JobCard({ job }) {
   const {
     id,
@@ -27,13 +29,13 @@ export default function JobCard({ job }) {
         </div>
       </div>
       <ul className="flex items-center gap-4">
-        <li>{role}</li>
-        <li>{level}</li>
+        <JobSkill>{role}</JobSkill>
+        <JobSkill>{level}</JobSkill>
         {languages.map((lang) => (
-          <li key={lang}>{lang}</li>
+          <JobSkill key={lang}>{lang}</JobSkill>
         ))}
         {tools.map((tool) => (
-          <li key={tool}>{tool}</li>
+          <JobSkill key={tool}>{tool}</JobSkill>
         ))}
       </ul>
     </div>
