@@ -2,7 +2,7 @@ import JobSkill from "./JobSkill";
 
 export default function FilterBar() {
   return (
-    <section className="max-w-screen-lg mx-auto my-4">
+    <section className="mb-12">
       <div className="flex items-center justify-between gap-8 bg-white px-8 py-4 rounded shadow-lg">
         <ul className="flex items-center gap-8">
           <JobSkill>test</JobSkill>
