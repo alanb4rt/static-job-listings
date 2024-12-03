@@ -16,6 +16,8 @@ export default function JobCard({ job }) {
     tools,
   } = job;
 
+  const jobSkills = [role, level, ...languages, ...tools];
+
   return (
     <div className="flex items-center gap-8 p-8 bg-white shadow-lg rounded">
       <img src={`./src/assets/${logo}`} alt={`Logo ${company}`} />
@@ -29,13 +31,8 @@ export default function JobCard({ job }) {
         </div>
       </div>
       <ul className="flex items-center gap-4">
-        <JobSkill>{role}</JobSkill>
-        <JobSkill>{level}</JobSkill>
-        {languages.map((lang) => (
-          <JobSkill key={lang}>{lang}</JobSkill>
-        ))}
-        {tools.map((tool) => (
-          <JobSkill key={tool}>{tool}</JobSkill>
+        {jobSkills.map((skill) => (
+          <JobSkill key={skill}>{skill}</JobSkill>
         ))}
       </ul>
     </div>
