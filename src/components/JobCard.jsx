@@ -1,7 +1,7 @@
 import Badge from "./Badge";
 import JobSkill from "./JobSkill";
 
-export default function JobCard({ job }) {
+export default function JobCard({ job, addFilter }) {
   const {
     id,
     company,
@@ -46,7 +46,9 @@ export default function JobCard({ job }) {
       </div>
       <ul className="flex items-center gap-4">
         {jobSkills.map((skill) => (
-          <JobSkill key={skill}>{skill}</JobSkill>
+          <JobSkill key={skill} onClick={addFilter}>
+            {skill}
+          </JobSkill>
         ))}
       </ul>
     </div>
