@@ -46,7 +46,7 @@ export default function JobCard({ job, addFilter }) {
       </div>
       <ul className="flex items-center gap-4">
         {jobSkills.map((skill) => (
-          <JobSkill key={skill} onClick={addFilter}>
+          <JobSkill key={skill} onClick={() => addFilter(skill)}>
             {skill}
           </JobSkill>
         ))}
