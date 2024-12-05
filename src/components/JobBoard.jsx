@@ -31,9 +31,13 @@ export default function JobBoard() {
 
   return (
     <>
-      <div className="relative z-10 -mt-8">
+      <section
+        className={`relative z-10 -mt-8 ${
+          filters.length === 0 ? "invisible" : ""
+        }`}
+      >
         <FilterBar filters={filters} setFilters={setFilters} />
-      </div>
+      </section>
       <JobList data={data} addFilter={addFilter} />
     </>
   );
