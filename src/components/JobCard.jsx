@@ -22,12 +22,16 @@ export default function JobCard({ job, addFilter }) {
 
   return (
     <div
-      className={`relative overflow-hidden flex items-center gap-8 p-8 bg-white shadow-lg rounded ${
+      className={`relative flex flex-col md:flex-row md:items-center gap-4 md:gap-8 p-8 bg-white shadow-lg rounded ${
         isFeatured && "job-featured"
       }`}
     >
-      <img src={`./src/assets/${logo}`} alt={`Logo ${company}`} />
-      <div className="flex flex-1 flex-col justify-between">
+      <img
+        className="size-16 md:size-24 -mt-16 md:m-0"
+        src={`./src/assets/${logo}`}
+        alt={`Logo ${company}`}
+      />
+      <div className="flex flex-1 flex-col gap-2 justify-between">
         <div className="flex items-center gap-2">
           <p className="text-[var(--color-primary)] font-bold mr-2">
             {company}
@@ -44,7 +48,8 @@ export default function JobCard({ job, addFilter }) {
           <p>{location}</p>
         </div>
       </div>
-      <ul className="flex items-center gap-4">
+      <hr className="md:hidden border-[var(--dark-grayish-cyan)]" />
+      <ul className="flex items-center flex-wrap gap-4">
         {jobSkills.map((skill) => (
           <JobSkill key={skill} onClick={() => addFilter(skill)}>
             {skill}
