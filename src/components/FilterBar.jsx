@@ -9,7 +9,7 @@ export default function FilterBar({ filters, setFilters }) {
 
   return (
     <div className="flex items-center justify-between gap-8 mb-12 bg-white px-8 py-4 rounded shadow-lg">
-      <ul className="flex items-center gap-8">
+      <ul className="flex items-center gap-4 md:gap-8 flex-wrap">
         {filters.map((filter) => (
           <div
             key={filter}
