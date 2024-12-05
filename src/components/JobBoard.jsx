@@ -32,7 +32,7 @@ export default function JobBoard() {
   return (
     <>
       <section
-        className={`relative z-10 -mt-8 ${
+        className={`relative z-10 px-6 -mt-8 ${
           filters.length === 0 ? "invisible" : ""
         }`}
       >
