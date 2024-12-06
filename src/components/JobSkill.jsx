@@ -1,7 +1,9 @@
-export default function JobSkill({ children, onClick }) {
+export default function JobSkill({ children, className, onClick }) {
   return (
     <li
-      className="cursor-pointer text-[var(--color-primary)] hover:text-white font-bold bg-[var(--color-bg)] hover:bg-[var(--color-primary)] p-2 leading-none rounded"
+      className={`bg-[var(--color-bg)] text-[var(--color-primary)] font-bold p-2 leading-none rounded ${
+        className || ""
+      }`}
       onClick={onClick}
     >
       {children}

@@ -51,7 +51,11 @@ export default function JobCard({ job, addFilter }) {
       <hr className="md:hidden border-[var(--dark-grayish-cyan)]" />
       <ul className="flex items-center flex-wrap gap-4">
         {jobSkills.map((skill) => (
-          <JobSkill key={skill} onClick={() => addFilter(skill)}>
+          <JobSkill
+            key={skill}
+            className="btn-jobskill"
+            onClick={() => addFilter(skill)}
+          >
             {skill}
           </JobSkill>
         ))}
