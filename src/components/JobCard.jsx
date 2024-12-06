@@ -41,10 +41,14 @@ export default function JobCard({ job, addFilter }) {
             <Badge color="var(--very-dark-grayish-cyan)">Featured</Badge>
           )}
         </div>
-        <h2 className="text-xl font-bold">{position}</h2>
-        <div className="flex items-center gap-4 text-[var(--dark-grayish-cyan)]">
+        <h2 className="cursor-pointer text-xl font-bold hover:text-[var(--color-primary)]">
+          {position}
+        </h2>
+        <div className="flex items-center gap-3 text-[var(--dark-grayish-cyan)]">
           <p>{postedAt}</p>
+          <span>.</span>
           <p>{contract}</p>
+          <span>.</span>
           <p>{location}</p>
         </div>
       </div>
