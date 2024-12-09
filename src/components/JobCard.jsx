@@ -1,3 +1,4 @@
+import { getImageURL } from "../utils/getImageURL";
 import Badge from "./Badge";
 import JobSkill from "./JobSkill";
 
@@ -18,6 +19,8 @@ export default function JobCard({ job, addFilter }) {
     tools,
   } = job;
 
+  const logoURL = getImageURL(logo.slice(9));
+
   const jobSkills = [role, level, ...languages, ...tools];
 
   return (
@@ -28,7 +31,7 @@ export default function JobCard({ job, addFilter }) {
     >
       <img
         className="size-16 md:size-24 -mt-16 md:m-0"
-        src={`./src/assets/${logo}`}
+        src={logoURL}
         alt={`Logo ${company}`}
       />
       <div className="flex flex-1 flex-col gap-2 justify-between">
