@@ -1,17 +1,26 @@
 import JobSkill from "./JobSkill";
 import iconRemove from "../assets/images/icon-remove.svg";
 
-export default function FilterBar({ filters, setFilters }) {
-  const removeFilter = (item) => {
+interface FilterBarProps {
+  filters: string[],
+  setFilters: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+export default function FilterBar({ filters, setFilters }: FilterBarProps) {
+  const removeFilter = (item: string) => {
     const newFilters = filters.filter((filter) => filter !== item);
     setFilters(newFilters);
+  };
+
+  const clearFilters = () => {
+    setFilters([]);
   };
 
   return (
     <div className="min-h-16 flex items-center justify-between gap-8 mb-12 bg-white px-8 py-4 rounded shadow-lg">
       <ul className="flex items-center gap-4 md:gap-8 flex-wrap">
         {filters.map((filter) => (
-          <div
+          <li
             key={filter}
             className="flex items-center rounded overflow-hidden"
           >
@@ -22,12 +31,12 @@ export default function FilterBar({ filters, setFilters }) {
             >
               <img src={iconRemove} alt="Remove" />
             </button>
-          </div>
+          </li>
         ))}
       </ul>
       <button
         className="text-[var(--dark-grayish-cyan)] hover:text-[var(--color-primary)] font-bold hover:underline"
-        onClick={() => setFilters([])}
+        onClick={clearFilters}
       >
         Clear
       </button>
