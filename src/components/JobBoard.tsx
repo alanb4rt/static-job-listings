@@ -2,31 +2,33 @@ import { useEffect, useState } from "react";
 import JobsData from "../data/data.json";
 import FilterBar from "./FilterBar";
 import JobList from "./JobList";
+import { Job } from "../types/job";
 
 export default function JobBoard() {
-  const [data, setData] = useState([...JobsData]);
-  const [filters, setFilters] = useState([]);
+  const [jobs, setJobs] = useState<Job[]>([...JobsData]);
+  const [filters, setFilters] = useState<string[]>([]);
 
-  const addFilter = (skill) => {
+  const addFilter = (skill: string) => {
     if (!filters.includes(skill)) {
       setFilters((prev) => [...prev, skill]);
     }
   };
 
   useEffect(() => {
-    if (filters.length === 0) return setData([...JobsData]);
+    if (filters.length === 0) {
+      setJobs([...JobsData])
+      return
+    }
 
     const filteredJobs = JobsData.filter((job) =>
-      filters.every(
-        (skill) =>
-          job.role.includes(skill) ||
-          job.level.includes(skill) ||
-          job.languages.some((lang) => lang.includes(skill)) ||
-          job.tools.some((tool) => tool.includes(skill))
+      filters.every((skill) => 
+        [job.role, job.level, ...job.languages, ...job.tools].some((item) =>
+          item.toLowerCase().includes(skill.toLowerCase())
+        )
       )
     );
 
-    setData(filteredJobs);
+    setJobs(filteredJobs);
   }, [filters]);
 
   return (
@@ -38,7 +40,7 @@ export default function JobBoard() {
       >
         <FilterBar filters={filters} setFilters={setFilters} />
       </section>
-      <JobList data={data} addFilter={addFilter} />
+      <JobList data={jobs} addFilter={addFilter} />
     </>
   );
 }
